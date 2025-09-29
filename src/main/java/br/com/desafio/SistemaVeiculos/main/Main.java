@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private String url = "https://parallelum.com.br/fipe/api/v1/";
+    private final String URL = "https://parallelum.com.br/fipe/api/v1/";
 
     Scanner scanner = new Scanner(System.in);
     ConsumoApi consumoApi = new ConsumoApi();
@@ -21,18 +21,18 @@ public class Main {
 
     public void exibeMenu() {
         System.out.println("""
-                Digite o tipo de veículo:
+                Digite o tipo de veículo que está procurando:
                 Carro
                 Caminhão
                 Moto
                 """);
         var opcao = scanner.nextLine().toLowerCase();
         if (opcao.toLowerCase().contains("car")) {
-            endereco = url + "carros/marcas";
+            endereco = URL + "carros/marcas";
         } else if (opcao.toLowerCase().contains("mot")) {
-            endereco = url + "motos/marcas";
+            endereco = URL + "motos/marcas";
         } else {
-            endereco = url + "caminhoes/marcas";
+            endereco = URL + "caminhoes/marcas";
         }
         var json = consumoApi.obeterDados(endereco);
         var marcas = converteDados.obterLista(json, Dados.class);
@@ -51,7 +51,7 @@ public class Main {
                 .sorted(Comparator.comparing(Dados::codigo))
                 .forEach(System.out::println);
 
-        System.out.println("\nDigite um trecho do nome do carro a ser buscado: ");
+        System.out.println("\nDigite um trecho do nome do veículo a ser buscado: ");
         var nomeVeiculo = scanner.nextLine();
         modeloLista.modelos().stream()
                 .filter(d -> d.nome().toLowerCase().contains(nomeVeiculo.toLowerCase()))
