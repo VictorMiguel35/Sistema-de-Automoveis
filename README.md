@@ -1,4 +1,4 @@
-# Consulta de Veículos - Tabela FIPE
+# Sistema de Automóveis - Tabela FIPE
 
 Este projeto é um sistema de consulta de veículos desenvolvido em Java, que permite ao usuário pesquisar o valor médio de carros, motos e caminhões de acordo com a Tabela FIPE. A aplicação é executada no terminal e consome a API pública da FIPE para obter os dados.
 
